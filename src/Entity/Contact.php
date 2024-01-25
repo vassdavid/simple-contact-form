@@ -19,7 +19,7 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[Assert\Email()]
+    #[Assert\Email(message: 'contact.error.email')]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 

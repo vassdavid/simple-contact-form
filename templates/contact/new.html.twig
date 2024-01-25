@@ -3,9 +3,10 @@
 {% block title %}New Contact{% endblock %}
 
 {% block body %}
-    <h1>Create new Contact</h1>
+    <div class="container contact-wrapper mt-4">
+        <h1>{{'contact_title'|trans({},'ui')}}</h1>
 
-    {{ include('contact/_form.html.twig') }}
-
-    <a href="{{ path('app_contact_index') }}">back to list</a>
+        {{ include('contact/_form.html.twig') }}
+    </div>
+    
 {% endblock %}

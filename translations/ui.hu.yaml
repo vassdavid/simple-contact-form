@@ -2,4 +2,5 @@ contact_label:
   name: 'Neved'
   email: 'E-mail címed'
   message: 'Üzenet szövege'
-  submit: 'Küldés gomb'
+  submit: 'Küldés'
+contact_title: 'Kapcsolatfelvétel'

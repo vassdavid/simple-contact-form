@@ -1,4 +1,6 @@
 flash_message:
   contact_send_success: 'Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.'
-  contact_send_failure: 'Hiba! Kérjük töltsd ki az összes mezőt!'
-  contact_bas_email_format: 'Hiba! Kérjük e-mail címet adjál meg!'
+contact:
+  error:
+    missing_field: 'Hiba! Kérjük töltsd ki az összes mezőt!'
+    email: 'Hiba! Kérjük e-mail címet adjál meg!'
