@@ -34,7 +34,7 @@ class ContactController extends AbstractController
     }
 
     #[Route('/', name: 'app_contact_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $contactDTO = new ContactDTO();
         $form = $this->createForm(ContactType::class, $contactDTO);
@@ -44,9 +44,9 @@ class ContactController extends AbstractController
             $contact = $contactDTO->fillEntity(new Contact());
             $entityManager->persist($contact);
             $entityManager->flush();
+            $this->addFlash('success', $translator->trans('flash_message.contact_send_success'));
 
-            //nem kell redirect, hanem üzenet
-            return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_contact_success', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('contact/new.html.twig', [
@@ -60,28 +60,6 @@ class ContactController extends AbstractController
     {
         return $this->render('contact/show.html.twig', [
             'contact' => $contact,
-        ]);
-    }
-
-    #[Route('/admin/contact/{id}/edit', name: 'app_contact_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Contact $contact, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
-    {
-        $contactDTO = ContactDTO::createByEntity($contact);
-        $form = $this->createForm(ContactType::class, $contactDTO);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $contact = $contactDTO->fillEntity($contact);
-            $entityManager->persist($contact);
-            $entityManager->flush();
-            $this->addFlash('success', $translator->trans('flash_message.contact_send_success'));
-
-            return $this->redirectToRoute('app_contact_success', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('contact/edit.html.twig', [
-            'contact' => $contactDTO,
-            'form' => $form,
         ]);
     }
 
@@ -99,6 +77,6 @@ class ContactController extends AbstractController
     #[Route('/success', name: 'app_contact_success', methods: ['GET'])]
     public function success(): Response
     {
-        return $this->render('contact/success.html.twig');
+        return $this->render('contact/success_response.html.twig');
     }
 }

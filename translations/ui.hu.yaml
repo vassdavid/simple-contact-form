@@ -4,3 +4,14 @@ contact_label:
   message: 'Üzenet szövege'
   submit: 'Küldés'
 contact_title: 'Kapcsolatfelvétel'
+contact_back_to_list: 'Vissza az üzenet listára'
+contact_field:
+  name: 'Név'
+  email: 'E-mail'
+  message: 'Üzenet szövege'
+login:
+  title: 'Bejelentkezés'
+  name: 'Felhasználónév'
+  password: 'Jelszó'
+  sign_in: 'Bejelentkezés'
+  please_sing_in: 'Kérem jelentkezzen be!'

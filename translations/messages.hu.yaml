@@ -4,3 +4,8 @@ contact:
   error:
     missing_field: 'Hiba! Kérjük töltsd ki az összes mezőt!'
     email: 'Hiba! Kérjük e-mail címet adjál meg!'
+  index: 'Üzenetek'
+Delete: 'Törlés'
+show: 'megjelenít'
+no_records_found: 'Nem található adat.'
+actions: 'Műveletek'
