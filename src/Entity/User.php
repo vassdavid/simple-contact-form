@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\DBAL\Types\Types;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
@@ -19,19 +20,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[Assert\NotBlank()]
-    #[ORM\Column(length: 180, unique: true)]   
+    #[Assert\Length(min: 3, max: 30)]
+    #[ORM\Column(type: Types::STRING, length: 30, unique: true)]   
     private ?string $username;
 
     /** @var array<int,string> */
-    #[Assert\Choice(UserRole::ROLES)]
-    #[ORM\Column]
+    #[Assert\Type('array')]
+    #[Assert\Choice(UserRole::ROLES, multiple: true)]
+    #[ORM\Column(type: Types::JSON)]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
-    #[ORM\Column]
     #[Assert\NotBlank()]
+    #[ORM\Column(type: Types::STRING)]
     private ?string $password = null;
 
     public function getId(): ?int

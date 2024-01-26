@@ -17,11 +17,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
-    #[Route('/admin/contacts', name: 'app_contact_index', methods: ['GET'])]
+    #[Route('/admin/contacts', name: 'app_contact_index', methods: [Request::METHOD_GET])]
     public function index(Request $request, PaginatorInterface $paginator, ContactRepository $contactRepository): Response
     {
-        //todo change this
-        $query = $contactRepository->findAll();
+        $query = $contactRepository->createQueryBuilder('a');
         $pagination = $paginator->paginate(
             $query,
             $request->query->getInt('page', PaginationDefault::PAGE),
@@ -33,7 +32,7 @@ class ContactController extends AbstractController
         ]);
     }
 
-    #[Route('/', name: 'app_contact_new', methods: ['GET', 'POST'])]
+    #[Route('/', name: 'app_contact_new', methods: [Request::METHOD_GET, Request::METHOD_POST])]
     public function new(Request $request, EntityManagerInterface $entityManager, TranslatorInterface $translator): Response
     {
         $contactDTO = new ContactDTO();
@@ -55,7 +54,7 @@ class ContactController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/contact/{id}', name: 'app_contact_show', methods: ['GET'])]
+    #[Route('/admin/contact/{id}', name: 'app_contact_show', methods: [Request::METHOD_GET])]
     public function show(Contact $contact): Response
     {
         return $this->render('contact/show.html.twig', [
@@ -63,7 +62,7 @@ class ContactController extends AbstractController
         ]);
     }
 
-    #[Route('admin/contact/{id}', name: 'app_contact_delete', methods: ['POST'])]
+    #[Route('admin/contact/{id}', name: 'app_contact_delete', methods: [Request::METHOD_POST])]
     public function delete(Request $request, Contact $contact, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
@@ -74,7 +73,7 @@ class ContactController extends AbstractController
         return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/success', name: 'app_contact_success', methods: ['GET'])]
+    #[Route('/success', name: 'app_contact_success', methods: [Request::METHOD_POST])]
     public function success(): Response
     {
         return $this->render('contact/success_response.html.twig');
