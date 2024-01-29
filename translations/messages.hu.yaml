@@ -18,3 +18,4 @@ menu:
     app_contact_index: 'Üzenetek'
 logout: 'Kijelentkezés'
 successful_submission: 'Sikeres beküldés'
+not_null: 'Ez az érték nem lehet üres!'

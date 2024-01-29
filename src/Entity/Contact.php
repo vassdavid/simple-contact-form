@@ -15,15 +15,16 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\NotNull]
+    #[Assert\NotNull(message: 'not_null')]
     #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $name = null;
 
+    #[Assert\NotNull(message: 'not_null')]
     #[Assert\Email(message: 'contact.error.email')]
     #[ORM\Column(type: Types::STRING, length: 255)]
     private ?string $email = null;
 
-    #[Assert\NotNull]
+    #[Assert\NotNull(message: 'not_null')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 

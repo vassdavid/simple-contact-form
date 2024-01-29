@@ -47,6 +47,18 @@ class ContactController extends AbstractController
 
             return $this->redirectToRoute('app_contact_success', [], Response::HTTP_SEE_OTHER);
         }
+        elseif($form->isSubmitted()) {
+            if(
+                $contactDTO->name == null
+                || $contactDTO->email == null
+                || $contactDTO->message == null
+            ) {
+                $this->addFlash('errors', $translator->trans('contact.error.missing_field'));
+            }
+            elseif(filter_var($contactDTO->email, FILTER_VALIDATE_EMAIL) === false) {
+                $this->addFlash('errors', $translator->trans('contact.error.email'));
+            }
+        }
 
         return $this->render('contact/new.html.twig', [
             'contact' => $contactDTO,

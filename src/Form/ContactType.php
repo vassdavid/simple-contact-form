@@ -21,13 +21,19 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => $this->translator->trans('contact_label.name', [], 'ui')
+                'label' => $this->translator->trans('contact_label.name', [], 'ui'),
+                'trim' => true,
+                'required' => false,
             ])
-            ->add('email', EmailType::class, [
-                'label' => $this->translator->trans('contact_label.email', [], 'ui')
+            ->add('email', TextType::class, [
+                'label' => $this->translator->trans('contact_label.email', [], 'ui'),
+                'constraints' => [],
+                'required' => false,
             ])
             ->add('message', TextareaType::class, [
                 'label' => $this->translator->trans('contact_label.message', [], 'ui'),
+                'trim' => true,
+                'required' => false,
                 'attr' => [
                     'rows' => 4,
                 ],
