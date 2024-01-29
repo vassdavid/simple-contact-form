@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block title %}Sikeres beküldés{% endblock %}
+{% block title %}{{'successful_submission'|trans}}{% endblock %}
 {% block body %}
-    {% if app.session.flashbag.has('success') and app.session.flashbag.get('success') is not empty %}
+    <div class="m-4">
+    {% for message in app.session.flashbag.get('success') %}
         <div class="alert alert-success" role="alert">
-            {{ app.session.flashbag.get('success')[0] }}
+            {{ message }}
         </div>
-    {% endif %}
+    {% endfor %}
+    </div>
 {% endblock %}

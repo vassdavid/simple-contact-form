@@ -12,3 +12,9 @@ no_records_found: 'Nem található adat.'
 actions: 'Műveletek'
 back_to_list: 'Vissza a listához'
 cant_delete_yourself: 'Nem törölheted ki a saját felhasználód!'
+menu:
+  title:
+    app_user_index: 'Felhasználók'
+    app_contact_index: 'Üzenetek'
+logout: 'Kijelentkezés'
+successful_submission: 'Sikeres beküldés'

@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/admin.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}{{'contact_title'|trans({},'ui')}}{% endblock %}
 
-{% block body %}
-    <h1>Contact</h1>
+{% block main %}
+    <h1>{{'contact_title'|trans({},'ui')}}</h1>
 
     <table class="table">
         <tbody>
@@ -12,15 +12,15 @@
                 <td>{{ contact.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>{{ 'contact_field.name'|trans({},'ui') }}</th>
                 <td>{{ contact.name }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>{{ 'contact_field.email'|trans({}, 'ui') }}</th>
                 <td>{{ contact.email }}</td>
             </tr>
             <tr>
-                <th>Message</th>
+                <th>{{ 'contact_field.message'|trans({}, 'ui') }}</th>
                 <td>{{ contact.message }}</td>
             </tr>
         </tbody>

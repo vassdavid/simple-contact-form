@@ -73,7 +73,7 @@ class ContactController extends AbstractController
         return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/success', name: 'app_contact_success', methods: [Request::METHOD_POST])]
+    #[Route('/success', name: 'app_contact_success', methods: [Request::METHOD_GET])]
     public function success(): Response
     {
         return $this->render('contact/success_response.html.twig');
