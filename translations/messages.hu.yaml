@@ -1,0 +1,21 @@
+flash_message:
+  contact_send_success: 'Köszönjük szépen a kérdésedet. Válaszunkkal hamarosan keresünk a megadott e-mail címen.'
+contact:
+  error:
+    missing_field: 'Hiba! Kérjük töltsd ki az összes mezőt!'
+    email: 'Hiba! Kérjük e-mail címet adjál meg!'
+  index: 'Üzenetek'
+Delete: 'Töröl'
+edit: 'Szerkeszt'
+show: 'Megjelenít'
+no_records_found: 'Nem található adat.'
+actions: 'Műveletek'
+back_to_list: 'Vissza a listához'
+cant_delete_yourself: 'Nem törölheted ki a saját felhasználód!'
+menu:
+  title:
+    app_user_index: 'Felhasználók'
+    app_contact_index: 'Üzenetek'
+logout: 'Kijelentkezés'
+successful_submission: 'Sikeres beküldés'
+not_null: 'Ez az érték nem lehet üres!'

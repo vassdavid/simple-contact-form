@@ -1,0 +1,28 @@
+contact_label:
+  name: 'Neved'
+  email: 'E-mail címed'
+  message: 'Üzenet szövege'
+  submit: 'Küldés'
+contact_title: 'Kapcsolatfelvétel'
+contact_back_to_list: 'Vissza az üzenet listára'
+contact_field:
+  name: 'Név'
+  email: 'E-mail'
+  message: 'Üzenet szövege'
+login:
+  title: 'Bejelentkezés'
+  name: 'Felhasználónév'
+  password: 'Jelszó'
+  sign_in: 'Bejelentkezés'
+  please_sing_in: 'Kérem jelentkezzen be!'
+user:
+  user: 'Felhasználó'
+  username: 'Felhasználónév'
+  roles: 'Szerepkörök'
+  users: 'Felhasználók'
+  new: 'Új felhasználó'
+  create_new: 'Új felhasználó hozzáadása'
+  password: 'Jelszó'
+  password_again: 'Jelszó újra'
+  create: 'Felhasználó létrehozása'
+  edit: 'Felhasználó módosítása'

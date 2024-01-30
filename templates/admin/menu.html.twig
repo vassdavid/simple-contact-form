@@ -1,0 +1,19 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100 h-100" style="width: 280px;">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <span class="fs-4">Admin</span>
+  </a>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    {% for item in constant('App\\Constant\\AdminMenu::ITEMS')  %}
+    <li class="nav-item">
+      <a href="{{ path(item) }}" class="nav-link text-white {{ app.request.get('_route') == item ? 'active' }}" aria-current="page">
+        {{('menu.title.' ~ item)|trans}}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <a href="{{ path('app_logout') }}" class="nav-link text-white" aria-current="page">
+    {{ 'logout'|trans }}
+  </a>
+</div>

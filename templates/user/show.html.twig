@@ -1,0 +1,27 @@
+{% extends 'layouts/admin.html.twig' %}
+
+{% block title %}{{'user.user'|trans({},'ui')}}{% endblock %}
+
+{% block main %}
+    <h1>{{'user.user'|trans({},'ui')}}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>{{'user.username'|trans({},'ui')}}</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>{{'user.roles'|trans({},'ui')}}</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_index') }}">{{'back_to_list'|trans}}</a>
+
+{% endblock %}

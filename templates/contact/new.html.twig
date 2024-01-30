@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'contact_title'|trans({},'ui')}}{% endblock %}
+
+{% block body %}
+    <div class="container contact-wrapper mt-4">
+        <h1>{{'contact_title'|trans({},'ui')}}</h1>
+
+        {{ include('contact/_form.html.twig') }}
+        {% for message in app.session.flashbag.get('errors') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
